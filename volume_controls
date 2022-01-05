@@ -1,0 +1,4 @@
+Very basic information to help control volume with CLI tools in base Arch + i3 installation. (Will update as time passes on..)
+
+alsamixer - displays a CLI volume manager esque tool. Always make sure that the default audio output source, has a "green" '00' below it in the alsamixer program window.
+

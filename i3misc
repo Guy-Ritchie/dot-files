@@ -1,0 +1,46 @@
+## This is the part about starting i3 on login fro tty. (Enabling startx in bash_profile)
+
+# Make sure to add the line 
+# exec i3 (cause, I'm using i3 here.. you enter your own respective wm) at the very end of the .xinitrc file. You may not have one after a clean install, but that's alright, cuz you need to first copy the default xinitrc file from '/etc/X11/xinit/xinitrc' and place it in your $HOME Directory.
+
+Remember that the lines following the 'exec' command won't be executed, and this is why it's important to place the 'exec i3' at the last, after the if block (if you're writing to the copied default file from default location)
+
+Next, a few lines should be added to your default '$SHELL_profile' file.
+In the .bash_profile file in your home directory; the following lines of code should be added :
+
+#if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+#	exec startx
+#fi
+
+##=============================================================================================================================================================
+
+## This is To set a wallpaper for i3 lock.
+
+First, edit the i3 config file. Search for the bindsym key definition, in the config file, where you've created a keybinding to activate i3lock. 
+
+If you take a look at the i3lock's man page, you can see that there is a flag [or an argument, if you will..] that can be used to pass an image to i3 to be set as the background image, with the path to the image to be specified after the parameter.
+
+ eg : 
+
+# bindsym $mod+shift+x exec i3lock -i ~/pictures/newscaledone.png
+
+This will set the keybinding to always open i3lock, with the passed image parameter as the background. But remember that i3lock doesn't by itself parse, or scale the image passed as parameter to it. So, you have to use another program to rescale it, and then pass it on as an argument to the i3lock script/command.
+
+There's this program called "imagemagick" that's present in the arch repository itself, that I used to scale the image to the preferred resolution. This is a command line utility, and it pretty light weight, around 10-11Mbs only. The command to resize the picture is as follows :
+
+# convert -scale 1920x1080 path_to_actual_image path_to_store_scaled_image
+
+Here, the part next to scale, [1920x1080] actually refers to the resolution, or the pixel dimensions of the image. Upon a tiny experimentation, I've realized that the pixel dimension that works best with the home computer (only for setting this wallpaper for i3lock, cuz the default resolution is 1440x900) is '1610x900'.
+
+There's a command one can use to figure out his screen resolution. The command is :
+
+# xdpyinfo | grep dimensions
+
+Restrart i3wm, and execute the keybinding for i3lock, to note the changes that take place.
+
+
+##=============================================================================================================================================================
+
+## This is about changing fonts in i3 status, and i3bar.
+
+To change the font in i3 window titles, search for font, in the i3config file. It will be present at the beginning of the config file. I've currently set it to : "Source Code Pro" with a font size of 10, for the i3 window titles, and "Source Sans Pro" with a font size of 11 for i3bar. The fonts and configs for the i3bar can be done inside the "bar {" which you can search for, inside the i3config.

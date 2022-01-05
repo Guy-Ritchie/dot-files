@@ -1,0 +1,9 @@
+"whoami" - print username of currently logged in, user.
+"man" - manual page for any command.
+
+# man pages contain a section called "Synopsis". This part actually shows us the accepted options and values that can be passed to the command. If there are any options enclosed in square brackets, it means that those options are optional. Now the descriptions for the individual options will be given/detailed below, in the man page.
+
+"clear" - clears the screen if contains any commands typed into, previously.
+"pwd" - prints current working directory.
+"ls" - used to list the contents of a directory.
+

@@ -1,0 +1,15 @@
+# Install a MTP client. Refer the arch wiki.
+
+# Update_Re : So, the client that I've downloaded and used (it's working really well) is simple-mtpfs [AUR] (which probably needs the libmtp package before hand, so install it before installing simple-mtpfs).
+#
+#Now, connect your phone to your computer, choose "Transfer Files" on your android phone, and have it stay unlocked till you mount it. (better, make it stay unlocked till you unmount it just to be on the safer side) 
+#
+#Then, make a directory (prefereably on your home (~) directory, name it whatever you want it to. (this is where you're going to mount your phone, and access all it's files from)
+#
+#Type in "simple-mtpfs -l" to see the id, and name of your android device. The id is important to mount the phone.
+#
+#Now, type "simple-mtpfs --device id ~/newFolder" where 'id' is the id value of the device obtained from the simple-mtpfs -l command. The ~/newFolder is the folder you want to mount your phone into, the one you created in your home directory.
+#
+#No output would be given by the previous command. Now we can proceed to access the folder where we mounted the phone, and access files and folders in it.
+#
+#Once, all operations have been performed, to unmount the device, we use the "fusermount -u ~/newFolder" command, where the '~/newFolder' is the mount point of the device.

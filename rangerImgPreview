@@ -1,0 +1,8 @@
+You first need, w3m from arch official repo. So, 'sudo pacman -S w3m' away...
+Next, you've to create a new ranger config file, if there's none already present.
+
+You can use the prebuilt flags from the ranger command to copy the default rc.config file, using the command :
+
+#ranger --copy-config=rc
+
+Then, it's actually recommended by default in the shell, to set the value of ENV variable : "RANGER_LOAD_DEFAULT_RC" to FALSE, to avoid any clashes. So, do that by typing in echoing the value "FALSE" to the environment variable, starting with a $ sign.
